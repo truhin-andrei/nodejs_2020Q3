@@ -12,7 +12,7 @@ const getById = async id => {
   return board;
 };
 
-// const create = async user => DB.createUser(user);
+const create = async board => DB.createBoard(board);
 
 // const update = async (id, updatedUser) => {
 //   const user = await DB.updateUser(id, updatedUser);
@@ -32,4 +32,4 @@ const getById = async id => {
 //   return user;
 // };
 
-module.exports = { getAll, getById };
+module.exports = { getAll, getById, create };

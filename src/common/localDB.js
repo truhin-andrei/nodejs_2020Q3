@@ -53,6 +53,11 @@ const getAllBoards = async () => {
 
 const getBoard = async id => DB.boards.filter(el => el.id === id)[0];
 
+const createBoard = async board => {
+  DB.boards.push(board);
+  return board;
+};
+
 module.exports = {
   getAllUsers,
   getUser,
@@ -60,5 +65,6 @@ module.exports = {
   updateUser,
   deleteUser,
   getAllBoards,
-  getBoard
+  getBoard,
+  createBoard
 };
