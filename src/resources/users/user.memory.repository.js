@@ -1,12 +1,18 @@
 const DB = require('../../common/localDB');
 
 const getAll = async () => {
-  // TODO: mock implementation. should be replaced during task development
-  return DB.users;
+  return DB.getAllUsers();
 };
 
-const get = async id => {
-  return DB.users.filter(el => el.id === id)[0];
+const getById = async id => {
+  const user = await DB.getUser(id);
+  if (!user) {
+    throw new Error(`The user with id: ${id} have not been found`);
+  }
+
+  return user;
 };
 
-module.exports = { getAll, get };
+const create = async user => DB.createUser(user);
+
+module.exports = { getAll, getById, create };
