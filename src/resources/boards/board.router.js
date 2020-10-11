@@ -40,13 +40,13 @@ router.route('/:id').put(async (req, res) => {
   }
 });
 
-// router.route('/:id').delete(async (req, res) => {
-//   try {
-//     const user = await usersService.deleteById(req.params.id);
-//     res.json(User.toResponse(user));
-//   } catch (error) {
-//     res.status(404).send(error.message);
-//   }
-// });
+router.route('/:id').delete(async (req, res) => {
+  try {
+    const board = await boardsService.deleteById(req.params.id);
+    res.json(Board.toResponse(board));
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
 
 module.exports = router;

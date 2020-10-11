@@ -72,6 +72,14 @@ const updateBoard = async (id, updatedBoard) => {
   return updatedBoard;
 };
 
+const deleteBoard = async id => {
+  if (!DB.boards.filter(el => el.id !== id)[0]) {
+    return false;
+  }
+  DB.boards = DB.boards.filter(el => el.id !== id);
+  return DB.boards.filter(el => el.id !== id)[0];
+};
+
 module.exports = {
   getAllUsers,
   getUser,
@@ -81,5 +89,6 @@ module.exports = {
   getAllBoards,
   getBoard,
   createBoard,
-  updateBoard
+  updateBoard,
+  deleteBoard
 };
