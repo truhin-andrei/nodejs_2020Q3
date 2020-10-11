@@ -7,7 +7,7 @@ const getAll = async () => {
 const getById = async id => {
   const user = await DB.getUser(id);
   if (!user) {
-    throw new Error(`The user with id: ${id} have not been found`);
+    throw new Error(`The user with id: ${id} has not been found`);
   }
 
   return user;
@@ -15,4 +15,22 @@ const getById = async id => {
 
 const create = async user => DB.createUser(user);
 
-module.exports = { getAll, getById, create };
+const update = async (id, updatedUser) => {
+  const user = await DB.updateUser(id, updatedUser);
+  if (!user) {
+    throw new Error(`The user with id: ${id} has not been found`);
+  }
+
+  return user;
+};
+
+const deleteById = async id => {
+  const user = await DB.deleteUser(id);
+  if (!user) {
+    throw new Error(`The user with id: ${id} has not been found`);
+  }
+
+  return user;
+};
+
+module.exports = { getAll, getById, create, update, deleteById };

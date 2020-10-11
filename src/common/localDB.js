@@ -19,4 +19,25 @@ const createUser = async user => {
   return user;
 };
 
-module.exports = { getAllUsers, getUser, createUser };
+const updateUser = async (id, updatedUser) => {
+  const currentUser = DB.users.filter(el => el.id === id)[0];
+  if (!currentUser) {
+    return false;
+  }
+  DB.users = DB.users.map(el => {
+    if (el.id === id) {
+      return updatedUser;
+    }
+    return el;
+  });
+  return updatedUser;
+};
+
+const deleteUser = async id => {
+  if (!DB.users.filter(el => el.id !== id)[0]) {
+    return false;
+  }
+  DB.users = DB.users.filter(el => el.id !== id);
+  return DB.users.filter(el => el.id !== id)[0];
+};
+module.exports = { getAllUsers, getUser, createUser, updateUser, deleteUser };
