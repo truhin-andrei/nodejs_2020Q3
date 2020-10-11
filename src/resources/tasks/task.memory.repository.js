@@ -14,13 +14,13 @@ const getById = async id => {
 
 const create = async task => DB.createTask(task);
 
-// const update = async (id, updatedTask) => {
-//   const task = await DB.updateBoard(id, updatedBoard);
-//   if (!task) {
-//     throw new Error(`The task with id: ${id} has not been found`);
-//   }
-//   return task;
-// };
+const update = async (id, updatedTask) => {
+  const task = await DB.updateTask(id, updatedTask);
+  if (!task) {
+    throw new Error(`The task with id: ${id} has not been found`);
+  }
+  return task;
+};
 
 // const deleteById = async id => {
 //   const task = await DB.deleteTask(id);
@@ -30,4 +30,4 @@ const create = async task => DB.createTask(task);
 //   return task;
 // };
 
-module.exports = { getAllByBoardId, getById, create };
+module.exports = { getAllByBoardId, getById, create, update };
