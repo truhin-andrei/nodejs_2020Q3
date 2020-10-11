@@ -110,13 +110,22 @@ const updateTask = async (id, updatedTask) => {
   return updatedTask;
 };
 
-// const deleteBoard = async id => {
-//   if (!DB.boards.filter(el => el.id !== id)[0]) {
-//     return false;
-//   }
-//   DB.boards = DB.boards.filter(el => el.id !== id);
-//   return DB.boards.filter(el => el.id !== id)[0];
-// };
+const deleteTask = async id => {
+  if (!DB.tasks.filter(el => el.id !== id)[0]) {
+    return false;
+  }
+  DB.tasks = DB.tasks.filter(el => el.id !== id);
+  return DB.tasks.filter(el => el.id !== id)[0];
+};
+
+const unAssignTasks = async userId => {
+  DB.tasks = DB.tasks.map(el => {
+    if (el.userId === userId) {
+      el.userId = null;
+    }
+    return el;
+  });
+};
 
 module.exports = {
   getAllUsers,
@@ -132,5 +141,7 @@ module.exports = {
   getAllTasksByBoardId,
   getTask,
   createTask,
-  updateTask
+  updateTask,
+  deleteTask,
+  unAssignTasks
 };

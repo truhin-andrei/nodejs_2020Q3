@@ -26,6 +26,7 @@ const update = async (id, updatedUser) => {
 
 const deleteById = async id => {
   const user = await DB.deleteUser(id);
+  DB.unAssignTasks(id);
   if (!user) {
     throw new Error(`The user with id: ${id} has not been found`);
   }

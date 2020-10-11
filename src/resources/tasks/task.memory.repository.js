@@ -22,12 +22,12 @@ const update = async (id, updatedTask) => {
   return task;
 };
 
-// const deleteById = async id => {
-//   const task = await DB.deleteTask(id);
-//   if (!task) {
-//     throw new Error(`The task with id: ${id} has not been found`);
-//   }
-//   return task;
-// };
+const deleteById = async id => {
+  const task = await DB.deleteTask(id);
+  if (!task) {
+    throw new Error(`The task with id: ${id} has not been found`);
+  }
+  return task;
+};
 
-module.exports = { getAllByBoardId, getById, create, update };
+module.exports = { getAllByBoardId, getById, create, update, deleteById };

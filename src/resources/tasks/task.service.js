@@ -4,6 +4,6 @@ const getAllByBoardId = () => tasksRepo.getAllByBoardId();
 const getById = id => tasksRepo.getById(id);
 const create = task => tasksRepo.create(task);
 const update = (id, updatedTask) => tasksRepo.update(id, updatedTask);
-// const deleteById = id => tasksRepo.deleteById(id);
+const deleteById = id => tasksRepo.deleteById(id);
 
-module.exports = { getAllByBoardId, getById, create, update };
+module.exports = { getAllByBoardId, getById, create, update, deleteById };
