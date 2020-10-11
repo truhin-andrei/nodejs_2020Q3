@@ -91,10 +91,10 @@ const getAllTasksByBoardId = async () => {
 
 const getTask = async id => DB.tasks.filter(el => el.id === id)[0];
 
-// const createBoard = async board => {
-//   DB.boards.push(board);
-//   return board;
-// };
+const createTask = async task => {
+  DB.tasks.push(task);
+  return task;
+};
 
 // const updateBoard = async (id, updatedBoard) => {
 //   const currentBoard = DB.boards.filter(el => el.id === id)[0];
@@ -130,5 +130,6 @@ module.exports = {
   updateBoard,
   deleteBoard,
   getAllTasksByBoardId,
-  getTask
+  getTask,
+  createTask
 };

@@ -20,15 +20,19 @@ router.route('/:id').get(async (req, res) => {
   }
 });
 
-// router.route('/').post(async (req, res) => {
-//   const board = await tasksService.create(
-//     new Board({
-//       title: req.body.title,
-//       columns: [...req.body.columns]
-//     })
-//   );
-//   res.json(Board.toResponse(board));
-// });
+router.route('/').post(async (req, res) => {
+  const task = await tasksService.create(
+    new Task({
+      title: req.body.title,
+      order: req.body.order,
+      description: req.body.description,
+      userId: req.body.userId,
+      boardId: req.baseUrl.split('/')[2],
+      columnId: req.body.columnId
+    })
+  );
+  res.json(Task.toResponse(task));
+});
 
 // router.route('/:id').put(async (req, res) => {
 //   try {
@@ -37,8 +41,8 @@ router.route('/:id').get(async (req, res) => {
 //       columns: [...req.body.columns],
 //       id: req.params.id
 //     };
-//     const board = await tasksService.update(req.params.id, updatedBoard);
-//     res.json(Board.toResponse(board));
+//     const task = await tasksService.update(req.params.id, updatedBoard);
+//     res.json(Task.toResponse(task));
 //   } catch (error) {
 //     res.status(404).send(error.message);
 //   }

@@ -12,22 +12,22 @@ const getById = async id => {
   return task;
 };
 
-// const create = async board => DB.createBoard(board);
+const create = async task => DB.createTask(task);
 
-// const update = async (id, updatedBoard) => {
-//   const board = await DB.updateBoard(id, updatedBoard);
-//   if (!board) {
-//     throw new Error(`The board with id: ${id} has not been found`);
+// const update = async (id, updatedTask) => {
+//   const task = await DB.updateBoard(id, updatedBoard);
+//   if (!task) {
+//     throw new Error(`The task with id: ${id} has not been found`);
 //   }
-//   return board;
+//   return task;
 // };
 
 // const deleteById = async id => {
-//   const board = await DB.deleteBoard(id);
-//   if (!board) {
-//     throw new Error(`The board with id: ${id} has not been found`);
+//   const task = await DB.deleteTask(id);
+//   if (!task) {
+//     throw new Error(`The task with id: ${id} has not been found`);
 //   }
-//   return board;
+//   return task;
 // };
 
-module.exports = { getAllByBoardId, getById };
+module.exports = { getAllByBoardId, getById, create };
