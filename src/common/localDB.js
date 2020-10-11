@@ -51,11 +51,14 @@ const getAllBoards = async () => {
   return [...DB.boards];
 };
 
+const getBoard = async id => DB.boards.filter(el => el.id === id)[0];
+
 module.exports = {
   getAllUsers,
   getUser,
   createUser,
   updateUser,
   deleteUser,
-  getAllBoards
+  getAllBoards,
+  getBoard
 };

@@ -4,18 +4,17 @@ const boardsService = require('./board.service');
 
 router.route('/').get(async (req, res) => {
   const users = await boardsService.getAll();
-  // map user fields to exclude secret fields like "password"
   res.json(users.map(Board.toResponse));
 });
 
-// router.route('/:id').get(async (req, res) => {
-//   try {
-//     const user = await usersService.getById(req.params.id);
-//     res.json(User.toResponse(user));
-//   } catch (error) {
-//     res.status(404).send(error.message);
-//   }
-// });
+router.route('/:id').get(async (req, res) => {
+  try {
+    const board = await boardsService.getById(req.params.id);
+    res.json(Board.toResponse(board));
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
 
 // router.route('/').post(async (req, res) => {
 //   const user = await usersService.create(

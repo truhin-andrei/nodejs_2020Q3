@@ -4,14 +4,13 @@ const getAll = async () => {
   return DB.getAllBoards();
 };
 
-// const getById = async id => {
-//   const user = await DB.getUser(id);
-//   if (!user) {
-//     throw new Error(`The user with id: ${id} has not been found`);
-//   }
-
-//   return user;
-// };
+const getById = async id => {
+  const board = await DB.getBoard(id);
+  if (!board) {
+    throw new Error(`The board with id: ${id} has not been found`);
+  }
+  return board;
+};
 
 // const create = async user => DB.createUser(user);
 
@@ -33,4 +32,4 @@ const getAll = async () => {
 //   return user;
 // };
 
-module.exports = { getAll };
+module.exports = { getAll, getById };
