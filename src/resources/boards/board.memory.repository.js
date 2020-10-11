@@ -14,14 +14,13 @@ const getById = async id => {
 
 const create = async board => DB.createBoard(board);
 
-// const update = async (id, updatedUser) => {
-//   const user = await DB.updateUser(id, updatedUser);
-//   if (!user) {
-//     throw new Error(`The user with id: ${id} has not been found`);
-//   }
-
-//   return user;
-// };
+const update = async (id, updatedBoard) => {
+  const board = await DB.updateBoard(id, updatedBoard);
+  if (!board) {
+    throw new Error(`The board with id: ${id} has not been found`);
+  }
+  return board;
+};
 
 // const deleteById = async id => {
 //   const user = await DB.deleteUser(id);
@@ -32,4 +31,4 @@ const create = async board => DB.createBoard(board);
 //   return user;
 // };
 
-module.exports = { getAll, getById, create };
+module.exports = { getAll, getById, create, update };

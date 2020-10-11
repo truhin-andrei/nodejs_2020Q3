@@ -58,6 +58,20 @@ const createBoard = async board => {
   return board;
 };
 
+const updateBoard = async (id, updatedBoard) => {
+  const currentBoard = DB.boards.filter(el => el.id === id)[0];
+  if (!currentBoard) {
+    return false;
+  }
+  DB.boards = DB.boards.map(el => {
+    if (el.id === id) {
+      return updatedBoard;
+    }
+    return el;
+  });
+  return updatedBoard;
+};
+
 module.exports = {
   getAllUsers,
   getUser,
@@ -66,5 +80,6 @@ module.exports = {
   deleteUser,
   getAllBoards,
   getBoard,
-  createBoard
+  createBoard,
+  updateBoard
 };
