@@ -89,7 +89,7 @@ const getAllTasksByBoardId = async () => {
   return [...DB.tasks];
 };
 
-// const getBoard = async id => DB.boards.filter(el => el.id === id)[0];
+const getTask = async id => DB.tasks.filter(el => el.id === id)[0];
 
 // const createBoard = async board => {
 //   DB.boards.push(board);
@@ -129,5 +129,6 @@ module.exports = {
   createBoard,
   updateBoard,
   deleteBoard,
-  getAllTasksByBoardId
+  getAllTasksByBoardId,
+  getTask
 };

@@ -4,13 +4,13 @@ const getAllByBoardId = async () => {
   return DB.getAllTasksByBoardId();
 };
 
-// const getById = async id => {
-//   const board = await DB.getBoard(id);
-//   if (!board) {
-//     throw new Error(`The board with id: ${id} has not been found`);
-//   }
-//   return board;
-// };
+const getById = async id => {
+  const task = await DB.getTask(id);
+  if (!task) {
+    throw new Error(`The task with id: ${id} has not been found`);
+  }
+  return task;
+};
 
 // const create = async board => DB.createBoard(board);
 
@@ -30,4 +30,4 @@ const getAllByBoardId = async () => {
 //   return board;
 // };
 
-module.exports = { getAllByBoardId };
+module.exports = { getAllByBoardId, getById };
