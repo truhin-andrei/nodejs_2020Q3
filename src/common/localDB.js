@@ -1,5 +1,6 @@
 const User = require('../resources/users/user.model');
 const Board = require('../resources/boards/board.model');
+const Task = require('../resources/tasks/task.model');
 
 const DB = {
   users: [],
@@ -80,6 +81,43 @@ const deleteBoard = async id => {
   return DB.boards.filter(el => el.id !== id)[0];
 };
 
+// Tasks DB
+
+DB.tasks.push(new Task(), new Task(), new Task(), new Task());
+
+const getAllTasksByBoardId = async () => {
+  return [...DB.tasks];
+};
+
+// const getBoard = async id => DB.boards.filter(el => el.id === id)[0];
+
+// const createBoard = async board => {
+//   DB.boards.push(board);
+//   return board;
+// };
+
+// const updateBoard = async (id, updatedBoard) => {
+//   const currentBoard = DB.boards.filter(el => el.id === id)[0];
+//   if (!currentBoard) {
+//     return false;
+//   }
+//   DB.boards = DB.boards.map(el => {
+//     if (el.id === id) {
+//       return updatedBoard;
+//     }
+//     return el;
+//   });
+//   return updatedBoard;
+// };
+
+// const deleteBoard = async id => {
+//   if (!DB.boards.filter(el => el.id !== id)[0]) {
+//     return false;
+//   }
+//   DB.boards = DB.boards.filter(el => el.id !== id);
+//   return DB.boards.filter(el => el.id !== id)[0];
+// };
+
 module.exports = {
   getAllUsers,
   getUser,
@@ -90,5 +128,6 @@ module.exports = {
   getBoard,
   createBoard,
   updateBoard,
-  deleteBoard
+  deleteBoard,
+  getAllTasksByBoardId
 };
