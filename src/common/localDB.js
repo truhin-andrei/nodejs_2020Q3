@@ -127,6 +127,9 @@ const unAssignTasks = async userId => {
   });
 };
 
+const deleteTasksByBoardId = async boardId =>
+  (DB.tasks = DB.tasks.filter(el => el.boardId !== boardId));
+
 module.exports = {
   getAllUsers,
   getUser,
@@ -143,5 +146,6 @@ module.exports = {
   createTask,
   updateTask,
   deleteTask,
-  unAssignTasks
+  unAssignTasks,
+  deleteTasksByBoardId
 };

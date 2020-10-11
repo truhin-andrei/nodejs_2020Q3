@@ -24,6 +24,7 @@ const update = async (id, updatedBoard) => {
 
 const deleteById = async id => {
   const board = await DB.deleteBoard(id);
+  DB.deleteTasksByBoardId(id);
   if (!board) {
     throw new Error(`The board with id: ${id} has not been found`);
   }
