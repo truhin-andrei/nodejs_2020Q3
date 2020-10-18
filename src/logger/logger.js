@@ -5,31 +5,28 @@ const logger = winston.createLogger({
   transports: [
     new winston.transports.Console({
       level: 'debug',
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.cli()
-      )
+      format: winston.format.cli()
     }),
     new winston.transports.File({
       filename: path.join(__dirname, './logs/errors.log'),
-      handleExceptions: true,
+      handleExceptions: false,
       level: 'error',
-      format: winston.format.json(),
-      colorize: false
+      colorize: true,
+      format: winston.format.simple()
     }),
     new winston.transports.File({
       filename: path.join(__dirname, './logs/info.log'),
       level: 'info',
-      json: true,
-      colorize: false
+      colorize: true,
+      format: winston.format.simple()
     })
   ],
   exceptionHandlers: [
     new winston.transports.File({
       filename: path.join(__dirname, './logs/exceptions.log'),
       format: winston.format.combine(
-        winston.format.uncolorize(),
-        winston.format.json()
+        winston.format.json(),
+        winston.format.colorize()
       )
     })
   ],

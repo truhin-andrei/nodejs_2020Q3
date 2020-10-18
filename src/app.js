@@ -2,8 +2,10 @@ const express = require('express');
 const swaggerUI = require('swagger-ui-express');
 const path = require('path');
 const YAML = require('yamljs');
-const morgan = require('./logger/morgan');
 
+const morgan = require('./logger/morgan');
+const logger = require('./logger/logger');
+const errorHandler = require('./common/errorHandler');
 const userRouter = require('./resources/users/user.router');
 const boardRouter = require('./resources/boards/board.router');
 const taskRouter = require('./resources/tasks/task.router');
@@ -31,10 +33,19 @@ app.use('/boards', boardRouter);
 
 app.use('/boards/:boardId/tasks', taskRouter);
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something went wrong');
-  next(err);
+app.use(errorHandler);
+
+process.on('uncaughtException', error => {
+  logger.error(`UncaughtException: ${error.message}`);
+  process.exitCode = 1;
 });
+
+process.on('unhandledRejection', error => {
+  logger.error(`unhandledRejection: ${error.message}`);
+  process.exitCode = 1;
+});
+
+// throw Error('Oops!');
+// Promise.reject(Error('Oops!'))
 
 module.exports = app;
