@@ -1,4 +1,5 @@
-const router = require('express').Router();
+const router = require('express').Router({ mergeParams: true });
+
 const Task = require('./task.model');
 const tasksService = require('./task.service');
 
