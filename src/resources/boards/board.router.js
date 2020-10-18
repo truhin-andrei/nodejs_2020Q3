@@ -7,12 +7,13 @@ router.route('/').get(async (req, res) => {
   res.json(users.map(Board.toResponse));
 });
 
-router.route('/:id').get(async (req, res) => {
+router.route('/:id').get(async (req, res, next) => {
   try {
     const board = await boardsService.getById(req.params.id);
     res.json(Board.toResponse(board));
   } catch (error) {
-    res.status(404).send(error.message);
+    error.status = 404;
+    return next(error);
   }
 });
 
@@ -26,7 +27,7 @@ router.route('/').post(async (req, res) => {
   res.json(Board.toResponse(board));
 });
 
-router.route('/:id').put(async (req, res) => {
+router.route('/:id').put(async (req, res, next) => {
   try {
     const updatedBoard = {
       title: req.body.title,
@@ -36,16 +37,18 @@ router.route('/:id').put(async (req, res) => {
     const board = await boardsService.update(req.params.id, updatedBoard);
     res.json(Board.toResponse(board));
   } catch (error) {
-    res.status(404).send(error.message);
+    error.status = 404;
+    return next(error);
   }
 });
 
-router.route('/:id').delete(async (req, res) => {
+router.route('/:id').delete(async (req, res, next) => {
   try {
     const board = await boardsService.deleteById(req.params.id);
     res.json(Board.toResponse(board));
   } catch (error) {
-    res.status(404).send(error.message);
+    error.status = 404;
+    return next(error);
   }
 });
 

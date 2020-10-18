@@ -3,21 +3,23 @@ const router = require('express').Router({ mergeParams: true });
 const Task = require('./task.model');
 const tasksService = require('./task.service');
 
-router.route('/').get(async (req, res) => {
+router.route('/').get(async (req, res, next) => {
   try {
     const tasks = await tasksService.getAllByBoardId();
     res.json(tasks.map(Task.toResponse));
   } catch (error) {
-    res.status(404).send(error.message);
+    error.status = 404;
+    return next(error);
   }
 });
 
-router.route('/:id').get(async (req, res) => {
+router.route('/:id').get(async (req, res, next) => {
   try {
     const task = await tasksService.getById(req.params.id);
     res.json(Task.toResponse(task));
   } catch (error) {
-    res.status(404).send(error.message);
+    error.status = 404;
+    return next(error);
   }
 });
 
@@ -35,7 +37,7 @@ router.route('/').post(async (req, res) => {
   res.json(Task.toResponse(task));
 });
 
-router.route('/:id').put(async (req, res) => {
+router.route('/:id').put(async (req, res, next) => {
   try {
     const updatedTask = {
       title: req.body.title,
@@ -49,16 +51,18 @@ router.route('/:id').put(async (req, res) => {
     const task = await tasksService.update(req.params.id, updatedTask);
     res.json(Task.toResponse(task));
   } catch (error) {
-    res.status(404).send(error.message);
+    error.status = 404;
+    return next(error);
   }
 });
 
-router.route('/:id').delete(async (req, res) => {
+router.route('/:id').delete(async (req, res, next) => {
   try {
     const task = await tasksService.deleteById(req.params.id);
     res.json(Task.toResponse(task));
   } catch (error) {
-    res.status(404).send(error.message);
+    error.status = 404;
+    return next(error);
   }
 });
 

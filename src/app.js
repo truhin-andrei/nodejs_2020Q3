@@ -3,7 +3,7 @@ const swaggerUI = require('swagger-ui-express');
 const path = require('path');
 const YAML = require('yamljs');
 
-const morgan = require('./logger/morgan');
+const morgan = require('./logger/morganConfig');
 const logger = require('./logger/logger');
 const errorHandler = require('./common/errorHandler');
 const userRouter = require('./resources/users/user.router');
