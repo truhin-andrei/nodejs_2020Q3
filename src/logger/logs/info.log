@@ -139,3 +139,11 @@ info: [Sun, 18 Oct 2020 13:24:44 GMT] DELETE /boards/18b661de-7a87-47ff-a1b4-6d1
 
 info: [Sun, 18 Oct 2020 13:24:44 GMT] DELETE /boards/18b661de-7a87-47ff-a1b4-6d1a4eb0a00f 200 query: {} params: {"id":"18b661de-7a87-47ff-a1b4-6d1a4eb0a00f"} body: {} - 1.280 ms
 
+error: UncaughtException: cb is not defined
+error: UncaughtException: connectionDB is not defined
+error: UncaughtException: connectionDB is not defined
+error: UncaughtException: connectionDB is not defined
+error: UncaughtException: connectionDB is not defined
+error: UncaughtException: Cannot find module './db/db.config'
+Require stack:
+- C:\Users\Tru\Desktop\nodejs_q3_2020\nodejs_2020Q3\src\server.js
