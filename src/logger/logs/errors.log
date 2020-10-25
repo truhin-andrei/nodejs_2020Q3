@@ -1,15 +1,1 @@
-error: 404 - The board with id: 3936eda3-eda9-451c-8843-19fd918a963d has not been found
-error: 404 - The task with id: 461fa641-2023-414d-92ca-75ef8b3b175b has not been found
-error: 404 - The task with id: bb478d05-8110-4563-9cd4-a22cb744349b has not been found
-error: 404 - The task with id: 8a7ae47c-93aa-4491-b9fc-8b5345d00647 has not been found
-error: 404 - The task with id: a94ab396-0583-4b93-830f-c148b6c53bd4 has not been found
-error: 404 - The task with id: e0f8d785-860f-412b-b786-3d14f459736e has not been found
-error: 404 - The task with id: 45b6766b-96ea-40bf-acd6-1ab501add589 has not been found
-error: UncaughtException: cb is not defined
-error: UncaughtException: connectionDB is not defined
-error: UncaughtException: connectionDB is not defined
-error: UncaughtException: connectionDB is not defined
-error: UncaughtException: connectionDB is not defined
-error: UncaughtException: Cannot find module './db/db.config'
-Require stack:
-- C:\Users\Tru\Desktop\nodejs_q3_2020\nodejs_2020Q3\src\server.js
+
