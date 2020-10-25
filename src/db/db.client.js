@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { MONGO_CONNECTION_STRING } = require('../common/config');
+const logger = require('../logger/logger');
 
 const User = require('../resources/users/user.model');
 // const Board = require('../resources/boards/board.model');
@@ -12,9 +13,9 @@ const connectToDB = cb => {
   });
 
   const db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
+  db.on('error', () => logger.error('connection error:'));
   db.once('open', () => {
-    console.log("we're connected!");
+    logger.info("we're connected!");
     db.dropDatabase();
     User.insertMany([
       new User({ name: 'name1', login: 'login1', password: 'password1' }),
