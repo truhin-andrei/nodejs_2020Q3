@@ -10,6 +10,7 @@ router.route('/').get(async (req, res) => {
 router.route('/:id').get(async (req, res, next) => {
   try {
     const board = await boardsService.getById(req.params.id);
+    console.log(board);
     res.json(Board.toResponse(board));
   } catch (error) {
     error.status = 404;

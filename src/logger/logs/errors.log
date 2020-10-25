@@ -1,2 +1,49 @@
 
 error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: unhandledRejection: Board validation failed: columns: Cast to string failed for value "[ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]" at path "columns"
+error: unhandledRejection: Board validation failed: columns: Cast to string failed for value "[ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]" at path "columns"
+error: unhandledRejection: Board validation failed: columns: Cast to string failed for value "[ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]" at path "columns"
+error: unhandledRejection: Board validation failed: columns: Cast to string failed for value "[ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]" at path "columns"
+error: unhandledRejection: Board validation failed: columns: Cast to string failed for value "[ { title: 'Backlog', order: 1 }, { title: 'Sprint', order: 2 } ]" at path "columns"
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - req.body.columns is not iterable
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'board' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.
+error: 404 - Cannot destructure property 'id' of 'task' as it is null.

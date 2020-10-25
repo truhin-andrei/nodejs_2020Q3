@@ -1,5 +1,6 @@
 // const DB = require('../../common/localDB');
 const User = require('./user.model');
+const { unAssignTasksByUserId } = require('../tasks/task.db.repository');
 
 const getAll = async () => {
   return User.find({});
@@ -18,14 +19,8 @@ const update = async (id, updatedUser) => {
 };
 
 const deleteById = async id => {
+  unAssignTasksByUserId(id);
   return (await User.deleteOne({ _id: id })).deletedCount;
-  // const user = await DB.deleteUser(id);
-  // DB.unAssignTasks(id);
-  // if (!user) {
-  //   throw new Error(`The user with id: ${id} has not been found`);
-  // }
-
-  // return user;
 };
 
 module.exports = { getAll, getById, create, update, deleteById };

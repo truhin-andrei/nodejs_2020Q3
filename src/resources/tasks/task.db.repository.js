@@ -21,4 +21,21 @@ const deleteById = async id => {
   return (await Task.deleteOne({ _id: id })).deletedCount;
 };
 
-module.exports = { getAllByBoardId, getById, create, update, deleteById };
+const deleteTasksByBoardId = async id => {
+  return (await Task.deleteMany({ boardId: id })).deletedCount;
+};
+
+const unAssignTasksByUserId = async id => {
+  const res = await Task.updateMany({ userId: id }, { userId: null });
+  return res.nModified;
+};
+
+module.exports = {
+  getAllByBoardId,
+  getById,
+  create,
+  update,
+  deleteById,
+  deleteTasksByBoardId,
+  unAssignTasksByUserId
+};
