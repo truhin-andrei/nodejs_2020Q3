@@ -1,11 +1,11 @@
-const uuid = require('uuid');
+// const uuid = require('uuid');
 const mongoose = require('mongoose');
 
 const columnSchema = new mongoose.Schema({
-  id: {
-    type: String,
-    default: uuid
-  },
+  // id: {
+  //   type: String,
+  //   default: uuid
+  // },
   title: String,
   order: Number
 });
@@ -13,11 +13,11 @@ const columnSchema = new mongoose.Schema({
 const boardSchema = new mongoose.Schema(
   {
     title: String,
-    columns: [columnSchema],
-    _id: {
-      type: String,
-      default: uuid
-    }
+    columns: [columnSchema]
+    // _id: {
+    //   type: String,
+    //   default: uuid
+    // }
   },
   { versionKey: false }
 );
