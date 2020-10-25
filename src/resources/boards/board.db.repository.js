@@ -22,12 +22,6 @@ const update = async (id, updatedBoard) => {
 const deleteById = async id => {
   deleteTasksByBoardId(id);
   return (await Board.deleteOne({ _id: id })).deletedCount;
-  // const board = await DB.deleteBoard(id);
-  // DB.deleteTasksByBoardId(id);
-  // if (!board) {
-  //   throw new Error(`The board with id: ${id} has not been found`);
-  // }
-  // return board;
 };
 
 module.exports = { getAll, getById, create, update, deleteById };
