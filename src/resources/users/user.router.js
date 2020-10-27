@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const User = require('./user.model');
 const usersService = require('./user.service');
+const validator = require('../../validation/validator');
 
 router.route('/').get(async (req, res) => {
   const users = await usersService.getAll();
   res.json(users.map(User.toResponse));
 });
 
-router.route('/:id').get(async (req, res, next) => {
+router.route('/:id').get(validator('id', 'params'), async (req, res, next) => {
   try {
     const user = await usersService.getById(req.params.id);
     res.json(User.toResponse(user));
