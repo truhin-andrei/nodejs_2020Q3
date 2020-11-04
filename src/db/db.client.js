@@ -16,7 +16,7 @@ const connectToDB = cb => {
   db.on('error', console.error.bind(console, 'connection error:'));
   db.once('open', async () => {
     console.log("we're connected!");
-    db.dropDatabase();
+    // db.dropDatabase();
     User.insertMany([
       new User({
         name: 'admin',

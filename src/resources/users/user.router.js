@@ -18,13 +18,11 @@ router.route('/:id').get(async (req, res, next) => {
 });
 
 router.route('/').post(async (req, res) => {
-  const user = await usersService.create(
-    new User({
-      login: req.body.login,
-      name: req.body.name,
-      password: req.body.password
-    })
-  );
+  const user = await usersService.create({
+    login: req.body.login,
+    name: req.body.name,
+    password: req.body.password
+  });
   res.json(User.toResponse(user));
 });
 

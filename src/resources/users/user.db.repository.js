@@ -22,4 +22,8 @@ const deleteById = async id => {
   return (await User.deleteOne({ _id: id })).deletedCount;
 };
 
-module.exports = { getAll, getById, create, update, deleteById };
+const getByProp = async prop => {
+  return User.findOne(prop);
+};
+
+module.exports = { getAll, getById, create, update, deleteById, getByProp };

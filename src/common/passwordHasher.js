@@ -6,7 +6,7 @@ const hashPassword = async password => {
 };
 
 const validatePassword = async (password, hash) => {
-  await bcrypt.validatePassword(password, hash);
+  return await bcrypt.compare(password, hash);
 };
 
 module.exports = {

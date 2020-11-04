@@ -1,11 +1,12 @@
 const usersRepo = require('./user.db.repository');
 const { hashPassword } = require('../../common/passwordHasher');
+const User = require('./user.model');
 
 const getAll = () => usersRepo.getAll();
 const getById = id => usersRepo.getById(id);
 const create = async user => {
   const hashedPassword = await hashPassword(user.password);
-  return usersRepo.create({ ...user, password: hashedPassword });
+  return usersRepo.create(new User({ ...user, password: hashedPassword }));
 };
 const update = async (id, updatedUser) => {
   const hashedPassword = await hashPassword(updatedUser.password);
