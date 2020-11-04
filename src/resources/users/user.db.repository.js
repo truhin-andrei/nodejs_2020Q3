@@ -1,4 +1,3 @@
-// const DB = require('../../common/localDB');
 const User = require('./user.model');
 const { unAssignTasksByUserId } = require('../tasks/task.db.repository');
 
